@@ -3,6 +3,12 @@ import { useWindow } from '../context/useWindow';
 import { FaGithub, FaLinkedin, FaEnvelope, FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaAngular, FaJava, FaGitAlt, FaDocker, FaLinux, FaFigma, } from 'react-icons/fa';
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import { SiPostgresql, SiMongodb, SiSpringboot, SiTailwindcss, SiTypescript } from 'react-icons/si';
+import myComputerIcon from '../assets/my-computer.png';
+import projectsIcon from '../assets/projects.png';
+import aboutMeIcon from '../assets/about-me.png';
+import myResumeIcon from '../assets/my-resume.png';
+import programsIcon from '../assets/programs.png';
+import livImg from '../assets/liv.jpg';
 
 const technologies = [
   { name: "React.js", icon: <FaReact size={20} className="text-blue-500" /> },
@@ -31,10 +37,10 @@ function MenuContent() {
   const { openWindow } = useWindow();
 
   const programs = [
-    { icon: "/src/assets/my-computer.png", text: "My Computer", bold: true, onClick: () => openWindow('My Computer') },
-    { icon: "/src/assets/projects.png", text: "Projects", bold: true, onClick: () => openWindow('Projects.exe') },
-    { icon: "/src/assets/about-me.png", text: "About Me", bold: true, onClick: () => openWindow('about_me.exe') },
-    { icon: "/src/assets/my-resume.png", text: "My Resume", bold: true, onClick: () => openWindow('myResume.pdf') },
+    { icon: myComputerIcon, text: "My Computer", bold: true, onClick: () => openWindow('My Computer') },
+    { icon: projectsIcon, text: "Projects", bold: true, onClick: () => openWindow('Projects.exe') },
+    { icon: aboutMeIcon, text: "About Me", bold: true, onClick: () => openWindow('about_me.exe') },
+    { icon: myResumeIcon, text: "My Resume", bold: true, onClick: () => openWindow('myResume.pdf') },
     { isSeparator: true },
     { icon: <FaGithub size={20} />, text: "GitHub", link: "https://github.com/liv-inn" },
     { icon: <FaLinkedin size={20} className="text-blue-700" />, text: "LinkedIn", link: "https://www.linkedin.com/in/livia-a-neves/" },
@@ -44,7 +50,7 @@ function MenuContent() {
   return (
     <div className="fixed bottom-8 flex flex-col w-full max-w-sm sm:w-96 h-[60vh] sm:h-112.5 rounded-t-lg shadow-2xl border border-t-white border-l-white border-r-black border-b-black bg-gradient-to-b from-[#1F6BDE] to-[#5298EE] font-xp">
       <div className="flex w-full items-center p-2 rounded-t-lg">
-        <img src="/src/assets/liv.jpg" alt="User" className="w-12 h-12 rounded border-2 border-white shadow-md" />
+        <img src={livImg} alt="User" className="w-12 h-12 rounded border-2 border-white shadow-md" />
         <h1 className="text-lg font-bold text-white ml-3" style={{ textShadow: '1px 1px 2px #000' }}>
           Lívia Neves
         </h1>
@@ -54,7 +60,7 @@ function MenuContent() {
         <div className="w-1/2 h-full bg-white p-2 space-y-1">
           {programs.slice(0, 4).map(item => <MenuItem key={item.text} {...item} />)}
           <div className="border-t border-gray-400 my-2" />
-          <MenuItem icon="/src/assets/programs.png" text="All Programs" submenu={programs} />
+          <MenuItem icon={programsIcon} text="All Programs" submenu={programs} />
         </div>
 
         <div className="w-1/2 h-full bg-[#D6E8F7] p-2 space-y-1 border-l border-white">

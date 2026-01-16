@@ -1,6 +1,7 @@
 import { useWindow } from "../context/useWindow";
 import SystemTray from "./SystemTray";
 import { useEffect } from "react";
+import startIcon from '../assets/start.png';
 
 function Nav({ toggleMenu }) {
   const { openWindow, windows, focusWindow, highestZIndex } = useWindow();
@@ -10,10 +11,10 @@ function Nav({ toggleMenu }) {
   }, []);
 
   return (
-    <nav className="fixed bottom-0 w-full h-8 bg-linear-to-t from-[#0947C3] to-[#3A85E6] border-t-2 border-[#5A9BFF] flex justify-between items-center text-white font-xp">
+    <nav className="fixed bottom-0 w-full h-8 bg-gradient-to-t from-[#0947C3] to-[#3A85E6] border-t-2 border-[#5A9BFF] flex justify-between items-center text-white font-xp">
       <div className="flex items-center h-full">
-        <button onClick={toggleMenu} className="flex items-center font-bold text-sm h-full px-3 bg-linear-to-b from-[#37B63F] to-[#24992A] rounded-r-md text-white shadow-md hover:from-[#4EBF55] hover:to-[#33983A]">
-          <img src="/src/assets/start.png" alt="Start" className="w-5 h-5 inline-block mr-1" />
+        <button onClick={toggleMenu} className="flex items-center font-bold text-sm h-full px-3 bg-gradient-to-b from-[#37B63F] to-[#24992A] rounded-r-md text-white shadow-md hover:from-[#4EBF55] hover:to-[#33983A]">
+          <img src={startIcon} alt="Start" className="w-5 h-5 inline-block mr-1" />
           <span>Start</span>
         </button>
         <div className="h-full w-px bg-blue-900/50 mx-2"></div>

@@ -1,11 +1,15 @@
 import { useState, useCallback } from "react";
 import { FaReact, FaFigma, FaCss3Alt, FaGamepad, FaJsSquare, FaJava, FaBolt } from "react-icons/fa";
+import portfolio2Img from "../assets/portfolio2.png";
+import portfolioImg from "../assets/portfolio.png";
+import hitchImg from "../assets/hitch.png";
+import bluezoneImg from "../assets/bluezone.png";
 
 const projects = [
   {
     title: "My Portfolio - This Site :D",
-    link: "https://livportifolio.com",
-    image: "src/assets/portfolio2.png",
+    link: "https://liv-xp-portfolio.vercel.app",
+    image: portfolio2Img,
     description: "This very site! Built with React, Tailwind CSS, and lots of fun!.",
     tools: [
       { name: "React", icon: <FaReact /> },
@@ -19,7 +23,7 @@ const projects = [
   {
     title: "Portfolio Landing Page",
     link: "https://liv-inn.github.io/portifolio-landingpage/",
-    image: "src/assets/portfolio.png",
+    image: portfolioImg,
     description: "My first portfolio landing page!",
     tools: [
       { name: "Figma", icon: <FaFigma /> },
@@ -33,7 +37,7 @@ const projects = [
   {
     title: "Hitch AI",
     link: "https://hitch-conselheiro-amoroso.vercel.app",
-    image: "src/assets/hitch.png",
+    image: hitchImg,
     description: "An AI love advisor that provides personalized dating advice.",
     tools: [
       { name: "Figma", icon: <FaFigma /> },
@@ -50,7 +54,7 @@ const projects = [
   {
     title: "Blue Zone Clinic",
     link: "https://fehmell.github.io/BlueZone-Clinic/",
-    image: "src/assets/bluezone.png",
+    image: bluezoneImg,
     description: "Rebranding and redesign of the Blue Zone Clinic website.",
     tools: [
       { name: "React", icon: <FaReact /> },

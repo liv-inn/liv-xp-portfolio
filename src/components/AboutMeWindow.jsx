@@ -1,5 +1,6 @@
 import { useState, memo } from 'react';
 import { useWindow } from '../context/useWindow';
+import livImg from '../assets/liv.jpg';
 
 const Tab = memo(({ title, activeTab, setActiveTab }) => {
   const isActive = activeTab === title;
@@ -27,7 +28,7 @@ function AboutMeWindow({ id }) {
         return (
           <div className="p-4 space-y-4">
             <div className="flex gap-4 items-center">
-              <img src="/src/assets/liv.jpg" alt="Lívia Neves" className="w-24 h-24 border-2 border-gray-400 p-0.5 bg-white shadow-md" />
+              <img src={livImg} alt="Lívia Neves" className="w-24 h-24 border-2 border-gray-400 p-0.5 bg-white shadow-md" />
               <div>
                 <p className="font-bold text-lg">Lívia Neves</p>
                 <p className="text-gray-600">Frontend Developer</p>
