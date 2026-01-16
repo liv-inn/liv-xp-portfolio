@@ -7,7 +7,7 @@ import { useWindow } from "../context/useWindow";
 import projectsIcon from '../assets/projects.png';
 import aboutMeIcon from '../assets/about-me.png';
 import myResumeIcon from '../assets/my-resume.png';
-import contactMeIcon from '../assets/contact-me.png';
+import contactMeIcon from '../assets/contact.png';
 
 
 
