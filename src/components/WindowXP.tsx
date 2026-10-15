@@ -45,9 +45,11 @@ function WindowXP({ id, type, minimized, zIndex, maximized, x, y }: WindowState)
 
   useEffect(() => {
     if (!dragging) return;
+    document.body.classList.add("dragging-window");
     window.addEventListener("pointermove", onPointerMove);
     window.addEventListener("pointerup", onPointerUp);
     return () => {
+      document.body.classList.remove("dragging-window");
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerup", onPointerUp);
     };

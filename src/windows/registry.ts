@@ -76,7 +76,7 @@ export const APPS: Record<WindowType, AppDefinition> = {
   winamp: {
     component: lazy(() => import("../components/apps/WinampWindow")),
     icon: WinampIcon,
-    size: "w-[320px] max-w-[95vw]",
+    size: "w-[400px] max-w-[95vw]",
     noMaximize: true,
   },
   cmd: {

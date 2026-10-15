@@ -260,6 +260,9 @@ const en = {
     volume: "Volume",
     stopped: "Stopped",
     note: "Original chiptunes composed in code ♪",
+    chiptunesTab: "Chiptunes",
+    spotifyTab: "Liv's Spotify",
+    spotifyTitle: "Liv's playlist on Spotify",
   },
   cmd: {
     banner: ["Liv XP [Version 5.1.2026]", "(C) Lívia Neves. All rights reserved.", "", 'Type "help" to see the available commands.'],
@@ -558,6 +561,9 @@ const pt: Strings = {
     volume: "Volume",
     stopped: "Parado",
     note: "Chiptunes originais compostas em código ♪",
+    chiptunesTab: "Chiptunes",
+    spotifyTab: "Spotify da Liv",
+    spotifyTitle: "Playlist da Liv no Spotify",
   },
   cmd: {
     banner: ["Liv XP [Versão 5.1.2026]", "(C) Lívia Neves. Todos os direitos reservados.", "", 'Digite "help" para ver os comandos disponíveis.'],

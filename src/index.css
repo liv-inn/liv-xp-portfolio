@@ -18,6 +18,11 @@ body {
   height: 100dvh;
 }
 
+/* Let window drags pass over embedded iframes (Spotify) */
+body.dragging-window iframe {
+  pointer-events: none;
+}
+
 /* Classic XP push button */
 .xp-button {
   padding: 0.2rem 0.9rem;
