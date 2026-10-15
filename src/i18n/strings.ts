@@ -199,6 +199,14 @@ const en = {
     tools: "Tools & Technologies",
     count: (n: number) => `${n} objects`,
     hint: "Double-click a folder to open it.",
+    fileHint: "Double-click a file to open it.",
+    files: { readme: "README.txt", stack: "stack.ini", site: "Site.url", code: "GitHub.url" },
+    notepadMenu: ["File", "Edit", "Format", "View", "Help"],
+    siteLabel: "Site",
+    codeLabel: "Code",
+    ieGo: "Go",
+    ieDone: "Done",
+    ieBlocked: "Page not loading? Open in a new tab",
     descriptions: {
       livxp: "This very site! A Windows XP-style portfolio with boot screen, games, Paint, Winamp and a command prompt — built with React, TypeScript and Tailwind CSS.",
       bluezoneApp:
@@ -500,6 +508,14 @@ const pt: Strings = {
     tools: "Ferramentas e Tecnologias",
     count: (n: number) => `${n} objetos`,
     hint: "Clique duas vezes em uma pasta para abrir.",
+    fileHint: "Clique duas vezes em um arquivo para abrir.",
+    files: { readme: "LEIAME.txt", stack: "stack.ini", site: "Site.url", code: "GitHub.url" },
+    notepadMenu: ["Arquivo", "Editar", "Formatar", "Exibir", "Ajuda"],
+    siteLabel: "Site",
+    codeLabel: "Código",
+    ieGo: "Ir",
+    ieDone: "Concluído",
+    ieBlocked: "A página não carregou? Abra em uma nova aba",
     descriptions: {
       livxp: "Este site! Um portfólio no estilo Windows XP com tela de boot, jogos, Paint, Winamp e prompt de comando — feito com React, TypeScript e Tailwind CSS.",
       bluezoneApp:

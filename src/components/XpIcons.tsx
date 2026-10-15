@@ -107,6 +107,42 @@ export function FileIcon({ className }: IconProps) {
   );
 }
 
+export function IniIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 48 48" className={className} aria-hidden>
+      <path d="M10 4h20l10 10v30H10z" fill="#fff" stroke="#6B7A8F" strokeWidth="2" />
+      <path d="M30 4v10h10" fill="#E5ECF5" stroke="#6B7A8F" strokeWidth="2" />
+      <g stroke="#9AA9BC" strokeWidth="2">
+        <line x1="15" y1="20" x2="35" y2="20" />
+        <line x1="15" y1="26" x2="26" y2="26" />
+      </g>
+      <circle cx="31" cy="35" r="6" fill="#B0B8C4" stroke="#4A5568" strokeWidth="2" strokeDasharray="3 2" />
+      <circle cx="31" cy="35" r="2.5" fill="#fff" stroke="#4A5568" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
+export function IeIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 48 48" className={className} aria-hidden>
+      <ellipse cx="24" cy="25" rx="21" ry="8" fill="none" stroke="#F5B400" strokeWidth="3" transform="rotate(-25 24 25)" />
+      <circle cx="24" cy="25" r="14" fill="#2A7FD4" stroke="#0B4F9E" strokeWidth="2" />
+      <path d="M15 26h18a9 9 0 10-2.6 6.4" fill="none" stroke="#fff" strokeWidth="4" strokeLinecap="round" />
+      <path d="M2 34c6-6 26-20 42-22" fill="none" stroke="#F5B400" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+/** Small arrow badge drawn over shortcut (.url / .lnk) icons */
+export function ShortcutBadge({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 16 16" className={className} aria-hidden>
+      <rect x="0.5" y="0.5" width="15" height="15" fill="#fff" stroke="#6B7A8F" />
+      <path d="M4 12c0-5 3-7 7-7M8 3h4v4" fill="none" stroke="#1F5FBF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function PowerIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden>

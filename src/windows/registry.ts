@@ -1,8 +1,7 @@
 import { lazy, type ComponentType, type LazyExoticComponent } from "react";
 import type { WindowType } from "../types";
-import { PaintIcon, MineIcon, WinampIcon, CmdIcon, RecycleIcon } from "../components/XpIcons";
+import { PaintIcon, MineIcon, WinampIcon, CmdIcon, RecycleIcon, FolderIcon } from "../components/XpIcons";
 import myComputerIcon from "../assets/my-computer.webp";
-import projectsIcon from "../assets/projects.webp";
 import aboutMeIcon from "../assets/about-me.webp";
 import myResumeIcon from "../assets/my-resume.webp";
 import contactIcon from "../assets/contact.webp";
@@ -47,7 +46,7 @@ export const APPS: Record<WindowType, AppDefinition> = {
   },
   projects: {
     component: lazy(() => import("../components/ProjectsWindow")),
-    icon: projectsIcon,
+    icon: FolderIcon,
     size: "w-[760px] max-w-[95vw] h-[460px] max-h-[80vh]",
     fixedHeight: true,
   },

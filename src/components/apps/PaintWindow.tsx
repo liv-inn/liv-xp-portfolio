@@ -168,15 +168,17 @@ function PaintWindow() {
     }, "image/png");
   };
 
-  // A small JPEG keeps the payload under EmailJS' size limit
-  const exportSmallJpeg = () => {
-    const source = canvasRef.current;
-    if (!source) return "";
-    const small = document.createElement("canvas");
-    small.width = WIDTH / 1.5;
-    small.height = HEIGHT / 1.5;
-    small.getContext("2d")?.drawImage(source, 0, 0, small.width, small.height);
-    return small.toDataURL("image/jpeg", 0.6);
+  // EmailJS free can't attach files, so the drawing goes to Cloudinary and the email carries its URL
+  const uploadDrawing = async (cloudName: string, preset: string) => {
+    const dataUrl = canvasRef.current?.toDataURL("image/jpeg", 0.9);
+    if (!dataUrl) throw new Error("Canvas not ready");
+    const body = new FormData();
+    body.append("file", dataUrl);
+    body.append("upload_preset", preset);
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, { method: "POST", body });
+    const json = await res.json();
+    if (!res.ok || !json.secure_url) throw new Error(json.error?.message ?? `Upload failed (${res.status})`);
+    return json.secure_url as string;
   };
 
   const handleSend = async (e: FormEvent) => {
@@ -184,17 +186,20 @@ function PaintWindow() {
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_PAINT_TEMPLATE_ID ?? import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-    if (!serviceId || !templateId || !publicKey) {
+    const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+    const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+    if (!serviceId || !templateId || !publicKey || !cloudName || !uploadPreset) {
       sounds.error();
       setSendState("error");
       return;
     }
     setSendState("sending");
     try {
+      const drawingUrl = await uploadDrawing(cloudName, uploadPreset);
       await emailjs.send(
         serviceId,
         templateId,
-        { from_email: email, subject: "🎨 Liv XP Paint", message: note || "(no message)", drawing: exportSmallJpeg() },
+        { from_email: email, subject: "🎨 Liv XP Paint", message: note || "(no message)", drawing_url: drawingUrl },
         publicKey
       );
       sounds.ding();
