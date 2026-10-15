@@ -1,15 +1,80 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import "tailwindcss";
 
-body{
-    background-image: url('/src/assets/background.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    font-family: "VT323", monospace;
-    font-weight: 400;
-    font-style: normal;
-    overflow: hidden;
-    height: 100vh;
+@theme {
+  --font-xp: Tahoma, "Segoe UI", Verdana, sans-serif;
+}
+
+body {
+  background-image: url('/src/assets/background.webp');
+  background-color: #3A6EA5;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* Classic XP push button */
+.xp-button {
+  padding: 0.2rem 0.9rem;
+  font-family: var(--font-xp);
+  font-size: 0.75rem;
+  border: 1px solid #003C74;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #ECEBE6 86%, #D6D0C5 100%);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+}
+.xp-button:hover:not(:disabled) {
+  box-shadow: inset 0 0 0 2px #F8B636;
+}
+.xp-button:focus-visible {
+  outline: 1px dotted #000;
+  outline-offset: -4px;
+}
+.xp-button:active:not(:disabled) {
+  background: linear-gradient(180deg, #E5E4DE 0%, #E3E2DA 100%);
+}
+
+/* Boot screen progress blocks */
+.boot-bar {
+  animation: boot-bar 1.8s linear infinite;
+}
+@keyframes boot-bar {
+  from { transform: translateX(-40px); }
+  to { transform: translateX(176px); }
+}
+
+/* Winamp scrolling title */
+.winamp-marquee {
+  animation: marquee 14s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Assistant */
+.clipster-in {
+  animation: clipster-in 0.5s cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+@keyframes clipster-in {
+  from { transform: translateY(40px) scale(0.8); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.clipster-bob {
+  animation: clipster-bob 3s ease-in-out infinite;
+}
+@keyframes clipster-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-bar, .winamp-marquee, .clipster-in, .clipster-bob {
+    animation: none;
+  }
 }

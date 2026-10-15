@@ -1,5 +1,5 @@
 import StartModal from "./Menu";
-import startIcon from '../assets/start.png';
+import startIcon from '../assets/start.webp';
 
 function Start(){
 

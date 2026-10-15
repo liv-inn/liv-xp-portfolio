@@ -1,17 +1,10 @@
-import { useWindow } from '../context/useWindow';
-import { FaExclamationTriangle } from 'react-icons/fa';
+import { useEffect } from "react";
+import { useWindow } from "../context/useWindowManager";
+import { useSettings } from "../context/useSettings";
+import { sounds } from "../lib/sounds";
+import type { WindowContentProps } from "../windows/registry";
 
-function WelcomeAlert({ id }) {
-  const { closeWindow } = useWindow();
-
-  return (
-    <div className="bg-[#ECE9D8] p-4 font-xp text-sm flex flex-col h-full w-100">
-      <div className="grow flex items-center gap-4 p-2">
-        <FaExclamationTriangle className="text-red-500 text-xl" />
-     <div className='space-y-2 text-xs'>
-           <p>Hii, I'm Liv!  :D Welcome to my portfolio! ✮⋆˙</p>
-        
-        <p>⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡀⠀⠀⠀⠀⠀⠀⠀⠀
+const CAT = `⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⢿⣧⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⢠⣿⠉⢻⣦⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⠏⠈⣿⣆⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⢀⣿⠃⠀⠀⠹⣷⡄⠀⠀⠀⠀⠀⣠⡾⠇⠀⠀⠘⣿⡆⠀⠀⠀⠀⠀⠀
@@ -27,14 +20,28 @@ function WelcomeAlert({ id }) {
 ⠀⠀⣿⠀⠁⠀⠀⠀⠀⠂⠀⠀⣾⣁⣤⢷⣄⣀⣀⣀⡴⠃⠀⠀⠀⠀⠀⠀⠈⠀⢸⡇⠀
 ⠀⠀⢿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠈⠉⠛⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⠃⠀
 ⠀⠀⠈⠛⠷⣶⣤⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⣠⣤⣶⠶⠟⠁⠀⠀
-⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠙⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠋⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀</p>
-     </div>
+⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠙⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠋⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀`;
+
+function WelcomeAlert({ id }: WindowContentProps) {
+  const { closeWindow } = useWindow();
+  const { t } = useSettings();
+
+  useEffect(() => {
+    sounds.ding();
+  }, []);
+
+  return (
+    <div className="bg-[#ECE9D8] p-4 font-xp text-sm flex flex-col">
+      <div className="flex items-start gap-4 p-2">
+        <span className="shrink-0 w-8 h-8 rounded-full bg-[#1F6FE5] text-white font-bold font-serif text-lg flex items-center justify-center shadow">i</span>
+        <div className="space-y-2 text-xs">
+          <p className="font-bold">{t.welcome.hi}</p>
+          <p>{t.welcome.hint}</p>
+          <pre className="text-[7px] leading-[7px] text-gray-700 select-none" aria-hidden>{CAT}</pre>
+        </div>
       </div>
       <div className="flex justify-center p-2">
-        <button
-          onClick={() => closeWindow(id)}
-          className="px-8 py-1 bg-[#ECE9D8] border-2 border-outset border-t-white border-l-white border-r-black border-b-black focus:border-inset"
-        >
+        <button onClick={() => closeWindow(id)} className="xp-button px-8" autoFocus>
           OK
         </button>
       </div>

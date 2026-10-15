@@ -1,9 +1,9 @@
 import Icons from "./Icons";
-import myComputerIcon from '../assets/my-computer.png';
-import projectsIcon from '../assets/projects.png';
-import aboutMeIcon from '../assets/about-me.png';
-import myResumeIcon from '../assets/my-resume.png';
-import contactMeIcon from '../assets/contact-me.png';
+import myComputerIcon from '../assets/my-computer.webp';
+import projectsIcon from '../assets/projects.webp';
+import aboutMeIcon from '../assets/about-me.webp';
+import myResumeIcon from '../assets/my-resume.webp';
+import contactMeIcon from '../assets/contact-me.webp';
 
 const icons = [
     { name: "My Computer", img: myComputerIcon },
